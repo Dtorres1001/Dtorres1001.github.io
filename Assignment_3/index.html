@@ -18,7 +18,9 @@
     <body>
 
       <div id="map"></div>
-      <script>var map = L.map('map', {attributionControl: false}).setView([41.7934, -87.5972], 14);L.control.attribution({prefix: false}).addTo(map);var tilesource_layer = L.tileLayer('https://dtorres1001.github.io/Assignment_3/tiles/{z}/{x}/{y}.png', {minZoom: 13, maxZoom: 15, tms: false, attribution: 'Created by QGIS'}).addTo(map);
+      <script>
+        
+        //var map = L.map('map', {attributionControl: false}).setView([41.7934, -87.5972], 14);L.control.attribution({prefix: false}).addTo(map);var tilesource_layer = L.tileLayer('https://dtorres1001.github.io/Assignment_3/tiles/{z}/{x}/{y}.png', {minZoom: 13, maxZoom: 15, tms: false, attribution: 'Created by QGIS'}).addTo(map);
 
         var bus = new L.geoJson(bus).addTo(map);
 
