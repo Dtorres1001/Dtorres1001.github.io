@@ -54,14 +54,23 @@
       var timeline;
       var timelineControl;
 
+      var minValue = 1
+      var minRadius = 5
+
+      function calcRadius(val) {
+        return 1.0083 * Math.pow(val/minValue,0.5716)*minRadius;
+      }
+
       function onLoadData(data) {
         timeline = L.timeline(data, {
-          style: function (data) {
-            return {
-              stroke: false,
+          pointToLayer: function (data, latlng) {
+            var diff = (data.properties.Flow);
+            return L.circleMarker(latlng,{
+              stroke: 1,
+              radius: Math.abs(data.properties.DIFF),
               color: getColorFor(data.properties.DIFF),
-              fillOpacity: 0.9,
-            };
+              fillOpacity: 0.7,
+            });
           },
           waitToUpdateMap: true,
           onEachFeature: function (feature, layer) {
@@ -80,6 +89,6 @@
         timelineControl.addTimelines(timeline);
       }
     </script>
-    <script src="https://Dtorres1001.github.io/Assignment_7/centroids.jsonp"></script>
+    <script src="centroids.jsonp"></script>
   </body>
 </html>
